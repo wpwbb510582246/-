@@ -1,0 +1,36 @@
+# 学习笔记(Inceptor)
+
+## 1、相关命令
+
+### 1.1 分区表
+
+#### 1.1.1 添加分区
+
+```sql
+alter table table_name add if not exits partition (partition_name=partition_value);
+```
+
+#### 1.1.2 删除分区
+
+```sql
+alter table table_name drop if exits partition (partition_name=partition_value);
+```
+
+#### 1.1.3 新增数据
+
+```sql
+insert into table table_name partition(partition_name=partition_value) select_statement;
+```
+
+#### 1.1.4 更新数据
+
+```sql
+ update table_name partition(partition_name=partition_value) set(column1, column2, ...) = (select_statement where filter_statement);
+```
+
+#### 1.1.5 删除数据
+
+```sql
+delete from table_name partition(partition_name=partition_value) where filter_statement
+```
+
